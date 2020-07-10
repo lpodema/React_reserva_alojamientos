@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+.header {
+    height: 10em;
+    background-color: blue;
+    display: grid;
+}
+
+.filter {
+    align-self: flex-end;
+}
+
+.mainview {
+    background-color: red;
+}
+
+.hotel-container {
+    background-color: green;
+}

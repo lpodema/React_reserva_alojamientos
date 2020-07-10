@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import Filter from "./Filter";
 
-export default class Header extends Component {
-    render() {
-        return <p>Funciona che</p>;
-    }
+export default function Header() {
+    return (
+        <div className='header'>
+            Header
+            <Filter />
+        </div>
+    );
 }
