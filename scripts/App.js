@@ -1,6 +1,3 @@
-import Header from "./components/Header";
-import Mainview from "./components/Mainview";
-
 class App extends React.Component {
     state = {
         data: null,

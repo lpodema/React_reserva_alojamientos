@@ -1,6 +1,4 @@
-import HotelContainer from "./HotelContainer";
-
-export default function Mainview(props) {
+function Mainview(props) {
     const { hoteles } = props;
     console.log(hoteles);
     return (

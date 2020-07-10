@@ -1,4 +1,4 @@
-export default function HotelContainer(props) {
+function HotelContainer(props) {
     const { hoteles } = props;
     console.log(hoteles);
     return <div className='hotel-container'></div>;

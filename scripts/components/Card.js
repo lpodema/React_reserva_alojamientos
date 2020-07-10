@@ -5,12 +5,6 @@ nombre, descripcion, ubicacion, cantidad de habitaciones y precio
 cada index del array representa un hotel.
 Todas las operacione de filtro que se hagan se van a buscar en el array
 
-
-
-
-
-
-
 */
 
 function Card() {

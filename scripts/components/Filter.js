@@ -14,6 +14,6 @@ grande(más de 20)
 
 FILTROS DEBEN TRABAJAR EN CONJUNTO.*/
 
-export default function Filter() {
+function Filter() {
     return <div className='filter'>esto sería el filter</div>;
 }
