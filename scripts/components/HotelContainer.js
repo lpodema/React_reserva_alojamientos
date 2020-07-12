@@ -2,32 +2,8 @@
 // grande(más de 20)
 
 function HotelContainer(props) {
-    // console.log("hotel container", Date.now());
     const { hoteles, filterData } = props;
     const filters = Object.entries(filterData);
-    console.log(filters);
-
-    function filterByCriteria(element, filt) {
-        if (filt && filt !== "0") {
-            return Object.values(element).includes(filt);
-        } else {
-            return true;
-        }
-    }
-
-    function filterBySize(size, filter) {
-        //console.log(filter, typeof filter);
-        switch (filter) {
-            case "pequeño":
-                return size > 0 && size <= 10;
-            case "mediano":
-                return size > 10 && size <= 20;
-            case "grande":
-                return size > 20;
-            default:
-                return true;
-        }
-    }
 
     function checkCriterias(element, filter) {
         const val = filter[1];
@@ -41,15 +17,37 @@ function HotelContainer(props) {
             case "size":
                 return filterBySize(element.rooms, val);
             case "availabilityFrom":
-                return checkDates(element.availabilityFrom, val);
+                return checkDates(element.availabilityFrom, Date.parse(val));
             case "availabilityTo":
-                return checkDates(element.availabilityTo, val);
+                return checkDates(element.availabilityTo, Date.parse(val));
+            default:
+                return true;
+        }
+    }
+
+    function filterByCriteria(element, filt) {
+        if (filt && filt !== "0") {
+            return Object.values(element).includes(filt);
+        } else {
+            return true;
+        }
+    }
+
+    function filterBySize(size, filter) {
+        switch (filter) {
+            case "pequeño":
+                return size > 0 && size <= 10;
+            case "mediano":
+                return size > 10 && size <= 20;
+            case "grande":
+                return size > 20;
             default:
                 return true;
         }
     }
 
     function checkDates(availability, val) {
+        //console.log(val);
         if (val) {
             return availability > val;
         } else {
@@ -58,9 +56,7 @@ function HotelContainer(props) {
     }
 
     const hotelsFiltered = hotelsData.filter((element) => {
-        //console.log(element);
         return filters.every((filt) => {
-            //console.log(filt);
             return checkCriterias(element, filt);
         });
     });
@@ -89,60 +85,3 @@ function HotelContainer(props) {
         </div>
     );
 }
-
-/*Funciona...
-
-    function filterByCriteria(element, filt) {
-      if(filt===null){
-        return true
-      }else{
-        const vals = Object.values(element);
-      //console.log(vals);
- //     console.log(filt)
-        return vals.includes(filt);
-    }
-      }
-
-function filterBySize(element, filter){
-  const size = element.size;
-  if(size>=filter){
-    return true;
-  }else{
-    return false;
-  }
-}
-
-function checkCriterias(element, filter){
-  const val = filter[1]
-  const key = filter[0]
-  //console.log("247", value, key)
-  switch(key){
-    case 'price':
-         return filterByCriteria(element, val)
-      break;
-    case 'country':
-      return filterByCriteria(element, val)
-      break;
-    case 'size':
-      console.log(key, val)
-      return element.rooms>=val;
-      break;
-    default:
-      return true;
-      break;
-  }
-  
-}
-
-hotelsData.filter(element=> 
-  //console.log(element)
-  filters.every(filt =>{
-  //  console.log(filt);
-                 //console.log(element,"filtro" + filt);
-       // console.log(filt);
-        return checkCriterias(element,filt);
-  
-}
-)
-                  )
-*/
