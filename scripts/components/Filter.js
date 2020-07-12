@@ -52,10 +52,10 @@ function Filter(props) {
                     <option value={4}>$$$$</option>
                 </select>
                 <select onChange={props.handlerChanges} name='size'>
-                    <option value={0}>Cualquier tamaño</option>
-                    <option value={10}>Pequeño</option>
-                    <option value={11}>Mediano</option>
-                    <option value={21}>Grande</option>
+                    <option value='any'>Cualquier tamaño</option>
+                    <option value='pequeño'>Pequeño</option>
+                    <option value='mediano'>Mediano</option>
+                    <option value='grande'>Grande</option>
                 </select>
             </form>
         </div>

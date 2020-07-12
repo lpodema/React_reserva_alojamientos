@@ -16,35 +16,36 @@ function HotelContainer(props) {
     }
 
     function filterBySize(size, filter) {
-        if (size) {
-            return true;
-        } else {
-            return size > filter;
+        //console.log(filter, typeof filter);
+        switch (filter) {
+            case "pequeño":
+                return size > 0 && size <= 10;
+            case "mediano":
+                return size > 10 && size <= 20;
+            case "grande":
+                return size > 20;
+            default:
+                return true;
         }
     }
+
     function checkCriterias(element, filter) {
         const val = filter[1];
         const key = filter[0];
-        // console.log(key, val);
+        //console.log(key, val);
         switch (key) {
             case "price":
                 return filterByCriteria(element, parseInt(val));
-                break;
             case "country":
                 return filterByCriteria(element, val);
-                break;
             case "size":
                 return filterBySize(element.rooms, val);
-                break;
             case "availabilityFrom":
                 return checkDates(element.availabilityFrom, val);
-                break;
             case "availabilityTo":
                 return checkDates(element.availabilityTo, val);
-                break;
             default:
                 return true;
-                break;
         }
     }
 

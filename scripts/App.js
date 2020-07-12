@@ -7,7 +7,7 @@ class App extends React.Component {
             availabilityTo: 0,
             country: null,
             price: 0,
-            size: 0,
+            size: null,
         },
     };
 
