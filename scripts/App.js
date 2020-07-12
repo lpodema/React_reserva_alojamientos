@@ -3,8 +3,8 @@ class App extends React.Component {
         hoteles: null,
         isLoading: true,
         filterData: {
-            availabilityFrom: 0,
-            availabilityTo: 0,
+            availabilityFrom: null,
+            availabilityTo: null,
             country: null,
             price: 0,
             size: null,
@@ -12,8 +12,7 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        this.setState({ hoteles: hotelsData });
-        this.setState({ isLoading: false });
+        this.setState({ hoteles: hotelsData, isLoading: false });
         // console.log(Date.now());
     }
 
@@ -26,12 +25,17 @@ class App extends React.Component {
             },
         });
     };
+
     render() {
         const { isLoading } = this.state;
-
+        const { availabilityFrom, availabilityTo } = this.state.filterData;
         return (
             <div className='app'>
-                <Header handlerChanges={this.handlerChanges} />
+                <Header
+                    handlerChanges={this.handlerChanges}
+                    availabilityFrom={availabilityFrom}
+                    availabilityTo={availabilityTo}
+                />
                 {isLoading ? (
                     <div>No cargó</div>
                 ) : (

@@ -1,21 +1,4 @@
-/*
-filtros:
-fechas, paises, precio, tamaño
-
-fechas: entrada y salida al hotel. Tiene que actualizarse la información en el componente header
-
-dropdown de paises, lista de lugares a filtrar. Todos los países, Argentina, Brasil, Chile, Uruguay.
-
-precios: Cualquier precio, $, $$, $$$, $$$$
-
-tamaño: cualquier tamaño, pequeño (hasta 10 camas), mediano(hasta 20 inclusive), 
-grande(más de 20)
-
-
-FILTROS DEBEN TRABAJAR EN CONJUNTO.*/
-
 function Filter(props) {
-    const today = new Date();
     return (
         <div className='filter'>
             <form>
@@ -25,6 +8,7 @@ function Filter(props) {
                         type='date'
                         onChange={props.handlerChanges}
                         name='availabilityFrom'
+                        value={props.dateFrom}
                     />
                 </label>
                 <label>
@@ -33,11 +17,12 @@ function Filter(props) {
                         type='date'
                         onChange={props.handlerChanges}
                         name='availabilityTo'
+                        value={props.dateTo}
                     />
                 </label>
 
                 <select onChange={props.handlerChanges} name='country'>
-                    <option value={0}>Todos los Países</option>
+                    <option value='any'>Todos los Países</option>
                     <option value='Argentina'>Argentina</option>
                     <option value='Brasil'>Brasil</option>
                     <option value='Chile'>Chile</option>
@@ -45,7 +30,7 @@ function Filter(props) {
                 </select>
 
                 <select onChange={props.handlerChanges} name='price'>
-                    <option value={0}>Cualquier Precio</option>
+                    <option value={"any"}>Cualquier Precio</option>
                     <option value={1}>$</option>
                     <option value={2}>$$</option>
                     <option value={3}>$$$</option>

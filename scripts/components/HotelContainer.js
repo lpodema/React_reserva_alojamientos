@@ -26,7 +26,7 @@ function HotelContainer(props) {
     }
 
     function filterByCriteria(element, filt) {
-        if (filt && filt !== "0") {
+        if (filt && filt !== "any") {
             return Object.values(element).includes(filt);
         } else {
             return true;
