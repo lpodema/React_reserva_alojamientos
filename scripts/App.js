@@ -13,11 +13,9 @@ class App extends React.Component {
 
     componentDidMount() {
         this.setState({ hoteles: hotelsData, isLoading: false });
-        // console.log(Date.now());
     }
 
     handlerChanges = (event) => {
-        //console.log(event.currentTarget);
         this.setState({
             filterData: {
                 ...this.state.filterData,
