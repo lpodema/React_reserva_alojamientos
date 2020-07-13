@@ -1,33 +1,71 @@
+/*breakpoint: 1110*/
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 .app {
     width: 100vw;
     max-width: 100%;
+    display: grid;
+    font-family: "Helvetica", arial, sans-serif;
 }
 
 .header {
-    height: 10em;
-    background-color: blue;
+    background-color: #00d1b0;
     display: grid;
-    padding: 2em 5em;
+    /*padding: 2em 5em;*/
+    grid-row-start: 1;
+}
+
+.info {
+    padding: 3em 4em;
+    color: #ecf0f1;
+    font-weight: 500;
+}
+
+.info h1 {
+    font-size: 2em;
+    margin-bottom: 0.4em;
+}
+
+.info > p {
+    font-weight: 500;
+    font-size: 1.2em;
 }
 
 .filter {
     align-self: flex-end;
+    background-color: #209cee;
+    padding: 0 3em;
+}
+.filter form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.filter form > * {
     padding: 1em;
+    width: 100%;
+}
+
+.filter form select {
+    padding: 0 1em;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 1em;
+    border: 1px solid #ecf0f1;
+    background: #fafafa;
 }
 
 .mainview {
-    background-color: red;
+    background-color: #fafafa;
     padding: 2em;
+    grid-row-start: 2;
 }
 
 .hotel-container {
-    background-color: green;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 2em;
@@ -44,9 +82,70 @@
     width: 100%;
 }
 
-.filter {
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+/* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: black;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 1em;
+    border: 1px solid #ecf0f1;
+    background: #fafafa;
+    display: inline-block !important;
+    visibility: visible !important;
+    width: 100%;
+    line-height: 2em;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.2em;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+
+input[type="date"],
+focus {
+    color: black;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    text-align: center;
+}
+
+/* class applies to select element itself, not a wrapper element */
+.select-css {
+    display: block;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 2em;
+    padding: 1em;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 0.2em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fafafa;
+    margin: 1em;
+    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+        for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+    */
 }
