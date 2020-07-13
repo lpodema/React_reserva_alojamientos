@@ -12,7 +12,6 @@ function HotelContainer(props) {
         ? hoteles
         : hotelsFiltered;
 
-    console.log(hotelsFiltered);
     return (
         <div className='hotel-container'>
             {hotelsToShow.map((hotel) => {

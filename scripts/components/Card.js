@@ -3,11 +3,16 @@ function Card(props) {
     return (
         <div className='card'>
             <img src={photo}></img>
-            <h3>{name}</h3>
-            <p>{description}</p>
-            <p>{`${city}, ${country}`}</p>
-            <p>{rooms}</p>
-            <p>{price}</p>
+            <div className='title-desc'>
+                <h3>{name}</h3>
+                <p>{description}</p>
+                <div className='info-container'>
+                    <p>{`${city}, ${country}`}</p>
+                    <p>{rooms}</p>
+                    <p>{price}</p>
+                </div>
+            </div>
+            <button className='btn-book'>Reservar</button>
         </div>
     );
 }
