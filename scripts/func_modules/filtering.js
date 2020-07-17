@@ -1,3 +1,9 @@
+const countries = ["Argentina", "Brasil", "Chile", "Uruguay"];
+
+const sizes = ["pequeño", "mediano", "grande"];
+
+const prices = ["$", "$$", "$$$", "$$$$"];
+
 function checkCriterias(element, filter) {
     const val = filter[1];
     const key = filter[0];

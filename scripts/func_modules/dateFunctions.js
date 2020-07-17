@@ -34,5 +34,5 @@ function dateLiteral(date) {
 
 function getDayOfWeek(date) {
     const day = new Date(date).getDay();
-    return dayOfWeek[day];
+    return dayOfWeek[day + 1];
 }

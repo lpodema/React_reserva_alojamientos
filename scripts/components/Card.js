@@ -6,10 +6,14 @@ function Card(props) {
             <div className='title-desc'>
                 <h3>{name}</h3>
                 <p>{description}</p>
-                <div className='info-container'>
-                    <p>{`${city}, ${country}`}</p>
-                    <p>{rooms}</p>
-                    <p>{price}</p>
+                <div className='decals-container'>
+                    <Location
+                        icon='fas fa-map-marker'
+                        info={`${city}, ${country}`}
+                        country={country}
+                    />
+                    <Sizing icon='fa fa-bed' aria-hidden='true' info={rooms} />
+                    <Pricing icon='fa fa-usd' aria-hidden='true' info={price} />
                 </div>
             </div>
             <button className='btn-book'>Reservar</button>
