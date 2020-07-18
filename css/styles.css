@@ -93,7 +93,6 @@ html {
 }
 
 /*Formatting the input type="date"*/
-
 /* Removes the clear button from date inputs */
 input[type="date"]::-webkit-clear-button {
     display: none;

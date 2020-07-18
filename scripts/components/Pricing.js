@@ -19,8 +19,3 @@ function Pricing(props) {
         </div>
     );
 }
-
-// <i className={icon} aria-hidden='true'></i>
-//             <i className={icon} aria-hidden='true'></i>
-//             <i className={icon} aria-hidden='true'></i>
-//             <i className={icon} aria-hidden='true'></i>
