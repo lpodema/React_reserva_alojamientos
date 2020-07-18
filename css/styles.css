@@ -1,12 +1,15 @@
-/*breakpoint: 1110*/
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
 .app {
     width: 100vw;
+    height: 100vh;
     max-width: 100%;
     display: grid;
     font-family: "Ubuntu", sans-serif;
@@ -15,156 +18,81 @@
 .header {
     background-color: #00d1b0;
     display: grid;
-    /*padding: 2em 5em;*/
     grid-row-start: 1;
+    width: 100%;
 }
 
 .info {
-    padding: 3em 5em;
+    padding: 0.6em;
     color: #fafafa;
     font-weight: 500;
+    width: 100%;
+    text-align: left;
 }
 
 .info h1 {
-    font-size: 2em;
-    margin-bottom: 0.4em;
+    font-size: 1em;
 }
-
-.info > p {
+.info p {
+    margin-block-start: 0;
+    margin-block-end: 0;
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 0.8em;
+    line-height: 1.3em;
+    padding: 0.2em 0 0 0;
 }
 
 .filter {
     align-self: flex-end;
     background-color: #209cee;
-    padding: 0 3em;
+    padding: 0em;
 }
+
 .filter form {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.05em 0.05em;
 }
 
-.filter form > * {
-    padding: 1em;
+.input-wrapper {
+    text-align: center;
     width: 100%;
+    flex: 1;
+    line-height: 1em;
+    border: 1px solid #999;
 }
 
+.input-wrapper i {
+    position: absolute;
+    padding: 0.2em 0.5em;
+    color: #d6d6d6;
+}
+
+.input-icons {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
 .filter form select {
     padding: 0 1em;
     font-family: "Helvetica", arial, sans-serif;
     font-size: 1em;
     border: 1px solid #ecf0f1;
     background: #fafafa;
+    border-radius: 0.2em;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
 }
 
-.mainview {
-    background-color: #fafafa;
-    padding: 2em;
-    grid-row-start: 2;
+.input-wrapper select {
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
 }
 
-.hotel-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 2em;
-}
-
-.card {
-    align-self: start;
-    color: #090909;
-    display: flex;
-    flex-flow: column;
-    margin: 1em;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-.card img {
-    width: 100%;
-    padding-bottom: 1em;
-}
-
-.title-desc {
-    padding: 1em;
-}
-
-.title-desc h3 {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.title-desc p {
-    line-height: 1.5em;
-    padding: 1em 0;
-    font-weight: 600;
-    color: #555555;
-}
-
-.decals-container {
-    display: flex;
-    flex-flow: row wrap;
-    color: white;
-    /* line-height: 0.8em; */
-    align-content: center;
-}
-
-.decals {
-    display: flex;
-
-    margin: 0 1em 1em 0;
-    height: 100%;
-}
-
-.decals i {
-    padding: 0.5em 0.4em;
-    background-color: #209cee;
-    /* align-self: center; */
-    /* text-align: center; */
-    vertical-align: center;
-    border-bottom-left-radius: 0.3em;
-    border-top-left-radius: 0.3em;
-    order: 1;
-}
-
-.pricing {
-    background-color: #209cee;
-    color: #59b4f0c0;
-    display: flex;
-    align-items: center;
-    /* align-content: space-around; */
-    padding: 0.4em 0.4em;
-    border-radius: 0.3em;
-    height: 100%;
-}
-
-.pricing i {
-    margin: 0.1em;
-}
-
-.active {
-    color: white;
-}
-
-.decals-data {
-    background-color: #e7e7e7;
-    color: black;
-    order: 2;
-    padding: 0.5em;
-    vertical-align: center;
-    border-bottom-right-radius: 0.3em;
-    border-top-right-radius: 0.3em;
-}
-.btn-book {
-    background-color: #00d1b0;
-    color: #fafafa;
-    line-height: 3em;
-    font-size: 1em;
-    font-weight: 600;
-    border: none;
-}
+/*Formatting the input type="date"*/
 
 /* Removes the clear button from date inputs */
 input[type="date"]::-webkit-clear-button {
@@ -193,12 +121,12 @@ input[type="date"] {
     display: inline-block !important;
     visibility: visible !important;
     width: 100%;
-    line-height: 2em;
     max-width: 100%;
     box-sizing: border-box;
     border-radius: 0.2em;
     box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
 }
+
 input[type="date"]:hover {
     border-color: #888;
 }
@@ -212,55 +140,330 @@ focus {
     text-align: center;
 }
 
-/* class applies to select element itself, not a wrapper element */
-.select-css {
-    display: block;
-    font-size: 1em;
-    font-family: sans-serif;
-    font-weight: 700;
-    color: #444;
-    line-height: 2em;
-    padding: 1em;
-    max-width: 100%; /* useful when width is set to anything other than 100% */
-    box-sizing: border-box;
-    margin: 0;
-    border: 1px solid #aaa;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-    border-radius: 0.2em;
-    appearance: none;
-    background-color: #fafafa;
+.toTheTop {
+    background-color: rgba(201, 201, 201, 0.7);
+    position: fixed;
+    bottom: 0.5em;
+    right: 42.5%;
+    z-index: 1;
+    padding: 0.5em;
+    border-radius: 50%;
+    line-height: 0.3em;
+    font-size: 0.7em;
+}
+
+.mainview {
+    width: 100%;
+    grid-row-start: 2;
+}
+
+.card {
+    align-self: start;
+    color: #090909;
+    display: flex;
+    flex-flow: column;
     margin: 1em;
-    position: relative;
-}
-/* Hide arrow icon in IE browsers */
-.select-css::-ms-expand {
-    display: none;
-}
-/* Hover style */
-.select-css:hover {
-    border-color: #888;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.input-wrapper {
-    text-align: center;
+.card img {
     width: 100%;
+    padding-bottom: 0.2em;
 }
 
-.input-wrapper i {
-    position: absolute;
-    padding: 0.6em 0.5em;
-    color: #d6d6d6;
+.title-desc {
+    padding: 0.5em;
 }
 
-.input-icons {
-    width: 100%;
-    text-align: center;
+.title-desc h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.title-desc p {
+    line-height: 1.5em;
+    font-size: 0.8em;
+    padding: 1em 0;
+    font-weight: 500;
+    color: #555555;
+}
+
+.decals-container {
+    display: flex;
+    flex-flow: row wrap;
+    color: white;
+    align-content: center;
+    font-size: 0.8em;
+}
+
+.decals {
+    display: flex;
+    margin: 0 1em 1em 0;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.decals i {
+    padding: 0.5em 0.4em;
+    background-color: #209cee;
+    vertical-align: center;
+    border-bottom-left-radius: 0.3em;
+    border-top-left-radius: 0.3em;
+    order: 1;
+}
+.decals-data {
+    background-color: #e7e7e7;
+    color: black;
+    order: 2;
+    padding: 0.5em;
+    vertical-align: center;
+    border-bottom-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+.pricing {
+    background-color: #209cee;
+    color: #59b4f0c0;
+    display: flex;
+    align-items: center;
+    padding: 0.4em 0.4em;
+    border-radius: 0.3em;
     height: 100%;
 }
 
-.input-wrapper select {
-    text-align-last: center;
-    text-align: center;
-    -ms-text-align-last: center;
-    -moz-text-align-last: center;
+.pricing i {
+    margin: 0.1em;
+}
+
+.active {
+    color: white;
+}
+
+.btn-book {
+    background-color: #00d1b0;
+    color: #fafafa;
+    line-height: 2em;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+}
+
+@media only screen and (min-width: 400px) {
+    .info {
+        padding: 0.8em;
+    }
+    .info h1 {
+        font-size: 1.5em;
+    }
+
+    .info p {
+        font-size: 1em;
+    }
+
+    .filter form {
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    .input-wrapper {
+        width: 50%;
+        flex: auto;
+        font-size: 1em;
+        height: 2em;
+        margin: 0.1em 0;
+    }
+
+    .input-icons {
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .input-wrapper i {
+        padding: 0.4em 0.7em;
+    }
+
+    .filter form select {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .info {
+        padding: 1em;
+    }
+    .title-desc {
+        padding: 0.8em;
+    }
+    .title-desc h3 {
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+    .title-desc p {
+        font-size: 1em;
+        padding: 0.5em 0 0.7em 0;
+    }
+    .decals-container {
+        font-size: 0.9em;
+    }
+    .btn-book {
+        line-height: 2.3em;
+        font-size: 1.1em;
+    }
+    .toTheTop {
+        line-height: 0.8em;
+        font-size: 1.2em;
+        right: 45%;
+    }
+}
+
+@media only screen and (min-width: 650px) {
+    .hotel-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .input-wrapper {
+        width: 50%;
+    }
+
+    .input-wrapper:nth-child(1n + 3) {
+        width: 33%;
+    }
+
+    .btn-book {
+        font-size: 1.2em;
+    }
+
+    .info {
+        padding: 1.4em 2em;
+    }
+    .toTheTop {
+        right: 47%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .decals-container {
+        font-size: 1em;
+    }
+
+    .btn-book {
+        line-height: 2.4em;
+    }
+
+    .info h1 {
+        font-size: 1.8em;
+    }
+    .info p {
+        font-size: 1.2em;
+    }
+    .toTheTop {
+        line-height: 0.8em;
+        font-size: 1.2em;
+        right: 47.65%;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .toTheTop {
+        display: none;
+    }
+    .info {
+        padding: 2em 4em;
+    }
+    .info h1 {
+        font-size: 2em;
+        margin-bottom: 0.4em;
+    }
+    .mainview {
+        padding: 1em;
+    }
+    .hotel-container {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 1em;
+    }
+    .input-wrapper {
+        height: 100%;
+    }
+    .filter {
+        padding: 0 3em;
+    }
+
+    .filter form {
+        justify-content: space-around;
+    }
+
+    .filter form > * {
+        padding: 1em 0.4em;
+        width: 100%;
+        border: none;
+    }
+
+    .input-wrapper {
+        width: 100%;
+        flex-basis: 0%;
+    }
+
+    .input-wrapper i {
+        padding: 0.45em 0.45em;
+    }
+
+    .input-icons {
+        height: 2em;
+    }
+
+    .filter form select {
+        font-size: 1em;
+        height: 2em;
+    }
+
+    .decals-container {
+        font-size: 0.9em;
+    }
+
+    .btn-book {
+        line-height: 3em;
+    }
+
+    .title-desc {
+        padding: 1em;
+    }
+
+    .title-desc h3 {
+        font-size: 1.5em;
+    }
+
+    .title-desc p {
+        line-height: 1.5em;
+        padding: 1em 0;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    .info {
+        padding: 3em 5em;
+    }
+
+    .decals-container {
+        font-size: 1em;
+    }
+    .mainview {
+        padding: 2em;
+    }
+
+    .hotel-container {
+        padding: 2em;
+    }
+    .card img {
+        padding-bottom: 1em;
+    }
+    .title-desc p {
+        font-size: 1.1em;
+    }
+    .input-wrapper i {
+        padding: 0.45em 0.6em;
+    }
 }
