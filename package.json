@@ -1,0 +1,19 @@
+{
+  "name": "emanuel_porres",
+  "version": "1.0.0",
+  "description": "without create-react-app",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpodema/React_reserva_alojamientos.git"
+  },
+  "author": "Emanuel Porres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpodema/React_reserva_alojamientos/issues"
+  },
+  "homepage": "https://github.com/lpodema/React_reserva_alojamientos#readme"
+}
