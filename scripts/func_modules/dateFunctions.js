@@ -14,13 +14,13 @@ const monthNames = [
 ];
 
 const dayOfWeek = [
-    "Domingo",
     "Lunes",
     "Martes",
     "Miércoles",
     "Jueves",
     "Viernes",
     "Sábado",
+    "Domingo",
 ];
 
 function dateLiteral(date) {
@@ -34,5 +34,5 @@ function dateLiteral(date) {
 
 function getDayOfWeek(date) {
     const day = new Date(date).getDay();
-    return dayOfWeek[day + 1];
+    return dayOfWeek[day];
 }
