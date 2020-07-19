@@ -3,4 +3,4 @@ var serveStatic = require('serve-static');
 
 connect()
     .use(serveStatic(__dirname))
-    .listen(5400, () => console.log('Server running on 5400...'));
+    .listen(process.env.PORT || 5000)
