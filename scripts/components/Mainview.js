@@ -5,7 +5,11 @@ function Mainview(props) {
     const { hoteles } = props;
     return (
         <div className='mainview'>
-            <HotelContainer hoteles={hoteles} filterData={props.filterData} />
+            <HotelContainer
+                hoteles={hoteles}
+                filterData={props.filterData}
+                resetFilters={props.resetFilters}
+            />
             <button onClick={scrollToTop} className='toTheTop'>
                 <i className='fa fa-chevron-up' aria-hidden='true'></i>
             </button>

@@ -9,7 +9,7 @@ html {
 }
 .app {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     max-width: 100%;
     display: grid;
     font-family: "Ubuntu", sans-serif;
@@ -240,7 +240,8 @@ focus {
     color: white;
 }
 
-.btn-book {
+.btn-book,
+.reset {
     background-color: #00d1b0;
     color: #fafafa;
     line-height: 2em;
@@ -248,7 +249,45 @@ focus {
     font-weight: 600;
     border: none;
 }
+.noHotels {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    height: 90vh;
+    grid-column: 1/4;
+    padding: 2em;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: space-between;
+    text-align: center;
+    border-radius: 1em;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.noHotels h1 {
+    grid-row-start: 1;
+    font-weight: 800;
+}
 
+.notMatched {
+    background-color: #f3f3f3;
+    width: 100%;
+    padding: 3em;
+    grid-row-start: 2;
+    border-radius: 1em;
+}
+
+.noHotels h3 {
+    grid-row-start: 3;
+}
+
+.reset {
+    height: 4em;
+    border-radius: 0.3em;
+    grid-row-start: 4;
+    margin: 3em;
+}
 @media only screen and (min-width: 400px) {
     .info {
         padding: 0.8em;
@@ -317,6 +356,10 @@ focus {
         font-size: 1.2em;
         right: 45%;
     }
+
+    .noHotels {
+        padding: 1em;
+    }
 }
 
 @media only screen and (min-width: 650px) {
@@ -364,6 +407,9 @@ focus {
         font-size: 1.2em;
         right: 47.65%;
     }
+    .noHotels {
+        padding: 5em 3em;
+    }
 }
 
 @media only screen and (min-width: 1100px) {
@@ -377,9 +423,9 @@ focus {
         font-size: 2em;
         margin-bottom: 0.4em;
     }
-    .mainview {
+    /* .mainview {
         padding: 1em;
-    }
+    } */
     .hotel-container {
         grid-template-columns: repeat(3, 1fr);
         padding: 1em;
@@ -450,7 +496,7 @@ focus {
         font-size: 1em;
     }
     .mainview {
-        padding: 2em;
+        padding: 1em;
     }
 
     .hotel-container {
@@ -465,4 +511,7 @@ focus {
     .input-wrapper i {
         padding: 0.45em 0.6em;
     }
+    /* .noHotels {
+        padding: 10em;
+    } */
 }

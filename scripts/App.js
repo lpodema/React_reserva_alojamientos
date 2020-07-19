@@ -24,6 +24,19 @@ class App extends React.Component {
         });
     };
 
+    resetFilters = () => {
+        this.setState({
+            filterData: {
+                availabilityFrom: null,
+                availabilityTo: null,
+                country: null,
+                price: 0,
+                size: null,
+            },
+        });
+        window.location.reload(false);
+    };
+
     render() {
         const { isLoading } = this.state;
         const { availabilityFrom, availabilityTo } = this.state.filterData;
@@ -40,6 +53,7 @@ class App extends React.Component {
                     <Mainview
                         hoteles={this.state.hoteles}
                         filterData={this.state.filterData}
+                        resetFilters={this.resetFilters}
                     />
                 )}
             </div>
