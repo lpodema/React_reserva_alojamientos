@@ -15,10 +15,10 @@ class App extends React.Component {
         this.setState({
             hoteles: hotelsData,
             isLoading: false,
-            // filterData: {
-            //     availabilityFrom: dateLiteral(),
-            //     availabilityTo: dateLiteral(),
-            // },
+            filterData: {
+                availabilityFrom: dateLiteral(),
+                availabilityTo: dateLiteral(),
+            },
         });
     }
 
