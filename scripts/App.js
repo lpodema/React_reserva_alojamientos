@@ -12,7 +12,14 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        this.setState({ hoteles: hotelsData, isLoading: false });
+        this.setState({
+            hoteles: hotelsData,
+            isLoading: false,
+            // filterData: {
+            //     availabilityFrom: dateLiteral(),
+            //     availabilityTo: dateLiteral(),
+            // },
+        });
     }
 
     handlerChanges = (event) => {
@@ -38,8 +45,8 @@ class App extends React.Component {
     };
 
     render() {
-        const { isLoading } = this.state;
-        const { availabilityFrom, availabilityTo } = this.state.filterData;
+        const { isLoading, hoteles, filterData } = this.state;
+        const { availabilityFrom, availabilityTo } = filterData;
         return (
             <div className='app'>
                 <Header
@@ -51,8 +58,8 @@ class App extends React.Component {
                     <div>No cargó</div>
                 ) : (
                     <Mainview
-                        hoteles={this.state.hoteles}
-                        filterData={this.state.filterData}
+                        hoteles={hoteles}
+                        filterData={filterData}
                         resetFilters={this.resetFilters}
                     />
                 )}

@@ -5,8 +5,7 @@ const sizes = ["pequeño", "mediano", "grande"];
 const prices = ["$", "$$", "$$$", "$$$$"];
 
 function checkCriterias(element, filter) {
-    const val = filter[1];
-    const key = filter[0];
+    const [key, val] = filter;
     switch (key) {
         case "price":
             return filterByCriteria(element, parseInt(val));
@@ -15,9 +14,13 @@ function checkCriterias(element, filter) {
         case "size":
             return filterBySize(element.rooms, val);
         case "availabilityFrom":
-            return checkDates(element.availabilityFrom, Date.parse(val));
+            return checkDatesFrom(element.availabilityFrom, Date.parse(val));
         case "availabilityTo":
-            return checkDates(element.availabilityTo, Date.parse(val));
+            return checkDatesTo(
+                element.availabilityFrom,
+                element.availabilityTo,
+                Date.parse(val)
+            );
         default:
             return true;
     }
@@ -26,9 +29,8 @@ function checkCriterias(element, filter) {
 function filterByCriteria(element, filt) {
     if (filt && filt !== "any") {
         return Object.values(element).includes(filt);
-    } else {
-        return true;
     }
+    return true;
 }
 
 function filterBySize(size, filter) {
@@ -44,10 +46,23 @@ function filterBySize(size, filter) {
     }
 }
 
-function checkDates(availability, val) {
+function checkDatesTo(availabilityFrom, availabilityTo, val) {
     if (val) {
-        return availability > val;
-    } else {
-        return true;
+        const offset =
+            new Date().getHours().valueOf() * 1000 * 60 * 60 +
+            timeOffset * 1000 * 60 * 60;
+        return (
+            availabilityTo >= val + offset && availabilityFrom <= val + offset
+        );
     }
+    return true;
+}
+function checkDatesFrom(availability, val) {
+    if (val) {
+        const offset =
+            new Date().getHours().valueOf() * 1000 * 60 * 60 +
+            (timeOffset + 1) * 1000 * 60 * 60;
+        return availability < val + offset;
+    }
+    return true;
 }

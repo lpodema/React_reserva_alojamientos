@@ -36,3 +36,5 @@ function getDayOfWeek(date) {
     const day = new Date(date).getDay();
     return dayOfWeek[day];
 }
+
+const timeOffset = new Date().getTimezoneOffset() / 60;
